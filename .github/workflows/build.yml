@@ -49,5 +49,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: macos-arm64
-          path: /tmp/workspace/avidemux2/*.app
-          include-hidden-files: true
+          path: /tmp/workspace/avidemux2/installer/*.dmg
