@@ -233,13 +233,13 @@ jobs:
         working-directory: /tmp/workspace/avidemux2
         run: |
           bash bootStrap.bash --deb
-          ls installer
+          ls pkgs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: deb
-          path: /tmp/workspace/avidemux2/installer/*
+          path: /tmp/workspace/avidemux2/pkgs/*
 
   rpm:
     name: Build .rpm for Fedora
@@ -271,13 +271,13 @@ jobs:
         working-directory: /tmp/workspace/avidemux2
         run: |
           bash bootStrap.bash --rpm
-          ls installer
+          ls pkgs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: rpm
-          path: /tmp/workspace/avidemux2/installer/*
+          path: /tmp/workspace/avidemux2/pkgs/*
 
   tgz:
     name: Build .tar.gz for Linux
@@ -309,10 +309,10 @@ jobs:
         working-directory: /tmp/workspace/avidemux2
         run: |
           bash bootStrap.bash --tgz
-          ls installer
+          ls pkgs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: tgz
-          path: /tmp/workspace/avidemux2/installer/*
+          path: /tmp/workspace/avidemux2/pkgs/*
