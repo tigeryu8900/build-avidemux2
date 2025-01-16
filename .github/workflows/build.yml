@@ -60,7 +60,7 @@ jobs:
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
         run: |
-          git apply ../build/avidemux.patch
+          git apply ../build/avidemux2.patch
 
       - name: Install dependencies
         working-directory: /tmp/workspace/avidemux2
@@ -98,7 +98,7 @@ jobs:
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
         run: |
-          git apply ../build/avidemux.patch
+          git apply ../build/avidemux2.patch
 
       - name: Install dependencies
         working-directory: /tmp/workspace/avidemux2
@@ -136,7 +136,7 @@ jobs:
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
         run: |
-          git apply ../build/avidemux.patch
+          git apply ../build/avidemux2.patch
 
       - name: Install dependencies
         working-directory: /tmp/workspace/avidemux2
@@ -222,7 +222,7 @@ jobs:
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
         run: |
-          git apply ../build/avidemux.patch
+          git apply ../build/avidemux2.patch
 
       - name: Install dependencies
         working-directory: /tmp/workspace/avidemux2
@@ -260,7 +260,7 @@ jobs:
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
         run: |
-          git apply ../build/avidemux.patch
+          git apply ../build/avidemux2.patch
 
       - name: Install dependencies
         working-directory: /tmp/workspace/avidemux2
@@ -298,7 +298,7 @@ jobs:
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
         run: |
-          git apply ../build/avidemux.patch
+          git apply ../build/avidemux2.patch
 
       - name: Install dependencies
         working-directory: /tmp/workspace/avidemux2

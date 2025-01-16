@@ -55,3 +55,24 @@ index 2eda71dcf..9dc9f6224 100644
      popd > /dev/null
  }
  printModule()
+diff --git a/macos_brew_setup.txt b/macos_brew_setup.txt
+index f9a76ceb3..d1c697a00 100644
+--- a/macos_brew_setup.txt
++++ b/macos_brew_setup.txt
+@@ -1,2 +1,3 @@
++brew install cmake pkg-config nasm yasm qt xvid x264 x265 libvpx aom opus fdk-aac lame libass mp4v2 a52dec
+ brew install make cmake yasm  pkg-config bzip2 zlib patchutils  sqlite3 libogg libvorbis opus libopusenc lame two-lame
+ brew install aom libvpx libass x264 x265 qt faac faad2 xvid
+diff --git a/mxe/mxe-setup.sh b/mxe/mxe-setup.sh
+index eec8310d1..39b844a2c 100755
+--- a/mxe/mxe-setup.sh
++++ b/mxe/mxe-setup.sh
+@@ -63,7 +63,7 @@ prepare_sources()
+ 
+     # get x264 source
+     ("${SRCDIR}/${x264_script}") \
+-    && cp -uv x264-*.tar.bz2 "${MXE_ROOT_DIR}/pkg/" || fail "Failed at x264 source"
++    && rsync -uv x264-*.tar.bz2 "${MXE_ROOT_DIR}/pkg/" || fail "Failed at x264 source"
+     # patch MXE
+     apply_patch_current x264_gen
+ 
