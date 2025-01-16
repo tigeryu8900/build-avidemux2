@@ -23,10 +23,11 @@ jobs:
     steps:
       - name: Create case-sensitive directory
         run: |
-          rsync --remove-source-files -avz $GITHUB_WORKSPACE/../../ /tmp/work/
+          WORK=$(readlink -f $GITHUB_WORKSPACE/../..)
+          rsync --remove-source-files -avz $WORK/ /tmp/work/
           hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 4g -volname workspace /tmp/work.sparseimage
-          sudo hdiutil attach -notremovable -nobrowse -mountpoint $GITHUB_WORKSPACE/../../ /tmp/work.sparseimage
-          rsync --remove-source-files -avz /tmp/work/ $GITHUB_WORKSPACE/../../
+          sudo hdiutil attach -notremovable -nobrowse -mountpoint $WORK /tmp/work.sparseimage
+          rsync --remove-source-files -avz /tmp/work/ $WORK/
 
       - name: Checkout build-avidemux2
         uses: actions/checkout@v4
