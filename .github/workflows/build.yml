@@ -33,13 +33,13 @@ jobs:
           git clone https://github.com/mean00/avidemux2.git
 
       - name: Apply patch
+        working-directory: /tmp/workspace/avidemux2
         run: |
-          cd /tmp/workspace/avidemux2
           git apply ../build/macos-arm64.patch
 
       - name: Build
+        working-directory: /tmp/workspace/avidemux2
         run: |
-          cd /tmp/workspace/avidemux2
           bash bootStrapMacOS_Monterey.arm64.sh
 
       - name: Upload artifact
