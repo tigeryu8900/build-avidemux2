@@ -24,7 +24,7 @@ jobs:
       - name: Create case-sensitive directory
         run: |
           hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 4g -volname workspace /tmp/workspace.sparseimage
-          sudo hdiutil attach -notremovable -nobrowse -mountpoint $GITHUB_WORKSPACE /tmp/workspace.sparseimage
+          sudo hdiutil attach -notremovable -nobrowse -mountpoint /tmp/workspace /tmp/workspace.sparseimage
 
       - name: Checkout build-avidemux2
         uses: actions/checkout@v4
@@ -40,9 +40,13 @@ jobs:
           path: avidemux2
           submodules: true
 
+      - name: Move repositories
+        run: |
+          rsync -avz --remove-source-files $GITHUB_WORKSPACE/ /tmp/workspace/
+
       - name: Apply patch
         run: |
-          cd $GITHUB_WORKSPACE/avidemux2
+          cd /tmp/workspace/avidemux2
           git apply ../build/macos-arm64.patch
 
       - name: Build
@@ -52,5 +56,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: macos-arm64
-          path: ${{ github.workspace }}/avidemux2/*.app
+          path: /tmp/workspace/avidemux2/*.app
           include-hidden-files: true
