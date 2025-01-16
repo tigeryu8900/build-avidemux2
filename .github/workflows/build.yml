@@ -27,8 +27,8 @@ jobs:
           sudo hdiutil attach -notremovable -nobrowse -mountpoint /tmp/workspace /tmp/workspace.sparseimage
 
       - name: Clone repositories
+        working-directory: /tmp/workspace
         run: |
-          cd /tmp/workspace
           git clone https://github.com/${{ github.repository }}.git build
           git clone https://github.com/mean00/avidemux2.git
 
