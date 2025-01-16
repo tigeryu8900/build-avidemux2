@@ -87,7 +87,7 @@ jobs:
 
   macos-intel:
     name: Build for macOS Intel
-    runs-on: macos-13
+    runs-on: macos-latest
     if: ${{ inputs.macos-intel }}
 
     steps:
@@ -261,7 +261,6 @@ jobs:
         working-directory: /tmp/workspace/avidemux2
         run: |
           bash bootStrap.bash --deb
-          ls pkgs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -306,7 +305,6 @@ jobs:
         working-directory: /tmp/workspace/avidemux2
         run: |
           bash bootStrap.bash --rpm
-          ls pkgs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -351,7 +349,6 @@ jobs:
         working-directory: /tmp/workspace/avidemux2
         run: |
           bash bootStrap.bash --tgz
-          ls pkgs
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
