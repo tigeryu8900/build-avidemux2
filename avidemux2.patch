@@ -1,3 +1,18 @@
+diff --git a/avidemux/osxInstaller/CMakeLists.txt b/avidemux/osxInstaller/CMakeLists.txt
+index fd44d0270..35e1fc449 100644
+--- a/avidemux/osxInstaller/CMakeLists.txt
++++ b/avidemux/osxInstaller/CMakeLists.txt
+@@ -57,8 +57,8 @@ ENDIF()
+ #
+ MESSAGE(STATUS "* Creating Skeleton *")
+ # Quick Hack...
+-#FILE(COPY "${CMAKE_CURRENT_SOURCE_DIR}/../qt4/ADM_userInterfaces/ADM_gui/pics/avidemux.icns"
+-#  DESTINATION "${ORIGINAL}/Contents/Resources/avidemux.icns")
++FILE(COPY "${CMAKE_CURRENT_SOURCE_DIR}/../qt4/ADM_userInterfaces/ADM_gui/pics/avidemux.icns"
++  DESTINATION "${ORIGINAL}/Contents/Resources/avidemux.icns")
+ FILE(COPY "${ORIGINAL}/Contents/MacOS/Avidemux${AVIDEMUX_MAJOR_MINOR}" DESTINATION "${BUNDLE}/Contents/MacOS/")
+ # Copy jobs and cli too
+ FILE(COPY "${ORIGINAL}/Contents/Resources/bin/avidemux_cli"          DESTINATION "${BUNDLE}/Contents/MacOS/")
 diff --git a/bootStrap.bash b/bootStrap.bash
 index 68055cdfa..7ebe8a2f1 100644
 --- a/bootStrap.bash
@@ -63,16 +78,3 @@ index f9a76ceb3..d1c697a00 100644
 +brew install cmake pkg-config nasm yasm qt xvid x264 x265 libvpx aom opus fdk-aac lame libass mp4v2 a52dec
  brew install make cmake yasm  pkg-config bzip2 zlib patchutils  sqlite3 libogg libvorbis opus libopusenc lame two-lame
  brew install aom libvpx libass x264 x265 qt faac faad2 xvid
-diff --git a/mxe/mxe-setup.sh b/mxe/mxe-setup.sh
-index eec8310d1..39b844a2c 100755
---- a/mxe/mxe-setup.sh
-+++ b/mxe/mxe-setup.sh
-@@ -63,7 +63,7 @@ prepare_sources()
- 
-     # get x264 source
-     ("${SRCDIR}/${x264_script}") \
--    && cp -uv x264-*.tar.bz2 "${MXE_ROOT_DIR}/pkg/" || fail "Failed at x264 source"
-+    && rsync -uv x264-*.tar.bz2 "${MXE_ROOT_DIR}/pkg/" || fail "Failed at x264 source"
-     # patch MXE
-     apply_patch_current x264_gen
- 
