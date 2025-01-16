@@ -71,11 +71,12 @@ index 2eda71dcf..9dc9f6224 100644
  }
  printModule()
 diff --git a/macos_brew_setup.txt b/macos_brew_setup.txt
-index f9a76ceb3..632a16a0a 100644
+index f9a76ceb3..e3b78d27f 100644
 --- a/macos_brew_setup.txt
 +++ b/macos_brew_setup.txt
-@@ -1,2 +1,4 @@
+@@ -1,2 +1,5 @@
++#!/bin/bash
 +brew install cmake pkg-config nasm yasm qt xvid x264 x265 libvpx aom opus fdk-aac lame libass mp4v2 a52dec
  brew install make cmake yasm  pkg-config bzip2 zlib patchutils  sqlite3 libogg libvorbis opus libopusenc lame two-lame
  brew install aom libvpx libass x264 x265 qt faac faad2 xvid
-+brew install vapoursynth aften libdca opencore-amr
++brew install vapoursynth aften libdca opencore-amr ffmpeg llvm libomp
