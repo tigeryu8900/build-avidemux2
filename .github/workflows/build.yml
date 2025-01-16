@@ -38,7 +38,9 @@ jobs:
           git apply ../build/macos-arm64.patch
 
       - name: Build
-        run: bash bootStrapMacOS_Monterey.arm64.sh
+        run: |
+          cd /tmp/workspace/avidemux2
+          bash bootStrapMacOS_Monterey.arm64.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
