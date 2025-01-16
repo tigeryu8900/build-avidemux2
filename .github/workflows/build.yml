@@ -23,8 +23,8 @@ jobs:
     steps:
       - name: Create case-sensitive directory
         run: |
-          hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 4g -volname workspace /tmp/work.sparseimage
-          sudo hdiutil attach -notremovable -nobrowse -mountpoint $GITHUB_WORKSPACE/../../ /tmp/work.sparseimage
+          hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 4g -volname avidemux2 /tmp/avidemux2.sparseimage
+          sudo hdiutil attach -notremovable -nobrowse -mountpoint $GITHUB_WORKSPACE/../ /tmp/avidemux2.sparseimage
           mkdir -p $GITHUB_WORKSPACE
           mkdir -p $GITHUB_WORKSPACE/../avidemux2
 
