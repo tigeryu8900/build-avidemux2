@@ -26,23 +26,11 @@ jobs:
           hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 4g -volname workspace /tmp/workspace.sparseimage
           sudo hdiutil attach -notremovable -nobrowse -mountpoint /tmp/workspace /tmp/workspace.sparseimage
 
-      - name: Checkout build-avidemux2
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.ref }}
-          path: build
-
-      - name: Checkout avidemux2
-        uses: actions/checkout@v4
-        with:
-          repository: mean00/avidemux2
-          ref: ${{ inputs.ref }}
-          path: avidemux2
-          submodules: true
-
-      - name: Move repositories
+      - name: Clone repositories
         run: |
-          rsync -avz --remove-source-files $GITHUB_WORKSPACE/ /tmp/workspace/
+          cd /tmp/workspace
+          git clone https://github.com/${{ github.repository }}.git build
+          git clone https://github.com/mean00/avidemux2.git
 
       - name: Apply patch
         run: |
