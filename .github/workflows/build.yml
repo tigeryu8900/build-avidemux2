@@ -23,8 +23,8 @@ jobs:
     steps:
       - name: Create case-sensitive directory
         run: |
-          hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 4g -volname workspace /tmp/workspace.dmg
-          sudo hdiutil attach -notremovable -nobrowse -mountpoint /Volumes/workspace /tmp/workspace
+          hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 4g -volname workspace /tmp/workspace.sparseimage
+          sudo hdiutil attach -notremovable -nobrowse -mountpoint /Volumes/workspace /tmp/workspace.sparseimage
 
       - name: Checkout build-avidemux2
         uses: actions/checkout@v4
