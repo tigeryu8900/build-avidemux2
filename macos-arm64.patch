@@ -7,7 +7,7 @@ index 236a581f8..dfae4d901 100755
  }
  
 -BUNDLE_CONTENT="/Applications/Avidemux-2.8.2.app/Contents"
-+BUNDLE_CONTENT="/Volumes/workspace/avidemux2/Avidemux2.8.app/Contents"
++BUNDLE_CONTENT="$GITHUB_WORKSPACE/avidemux2/Avidemux2.8.app/Contents"
  
  if [ ! -d ${BUNDLE_CONTENT} ]
  then
