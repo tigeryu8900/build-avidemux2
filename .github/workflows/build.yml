@@ -30,7 +30,7 @@ jobs:
         working-directory: /tmp/workspace
         run: |
           git clone https://github.com/${{ github.repository }}.git build
-          git clone https://github.com/mean00/avidemux2.git
+          git clone --recurse-submodules https://github.com/mean00/avidemux2.git
 
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
