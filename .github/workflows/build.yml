@@ -50,3 +50,4 @@ jobs:
         with:
           name: macos-arm64
           path: ${{ github.workspace }}/avidemux2/Avidemux2.8.app
+          include-hidden-files: true
