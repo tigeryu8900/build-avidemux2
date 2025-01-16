@@ -87,7 +87,7 @@ jobs:
 
   macos-intel:
     name: Build for macOS Intel
-    runs-on: macos-latest
+    runs-on: macos-13
     if: ${{ inputs.macos-intel }}
 
     steps:
@@ -122,8 +122,7 @@ jobs:
       - name: Build
         working-directory: /tmp/workspace/avidemux2
         run: |
-          export MACOSX_DEPLOYMENT_TARGET=$(xcrun --sdk macosx --show-sdk-version)
-          bash bootStrapMacOS_Sonoma.sh --enable-qt6
+          bash bootStrapMacOS_Sonoma.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
