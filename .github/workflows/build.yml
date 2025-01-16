@@ -159,11 +159,6 @@ jobs:
         run: |
           git apply ../build/avidemux2.patch
 
-      - name: Install dependencies
-        working-directory: /tmp/workspace/avidemux2
-        run: |
-          bash createDebFromSourceUbuntu.bash --deps-only
-
       - name: Install MXE
         working-directory: /tmp/workspace
         run: |
