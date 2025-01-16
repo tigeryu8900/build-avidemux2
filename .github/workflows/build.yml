@@ -118,6 +118,7 @@ jobs:
         working-directory: /tmp/workspace/avidemux2
         run: |
           bash macos_brew_setup.txt
+          brew install ninja
 
       - name: Build
         working-directory: /tmp/workspace/avidemux2
