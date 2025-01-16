@@ -1,0 +1,57 @@
+diff --git a/bootStrap.bash b/bootStrap.bash
+index 68055cdfa..7ebe8a2f1 100644
+--- a/bootStrap.bash
++++ b/bootStrap.bash
+@@ -98,7 +98,13 @@ Process() {
+   $ADATE
+   echo "   $BASE:Install started..."
+   # we need the make install so that other packcges can be built against this one
+-  DESTDIR="${FAKEROOT_DIR}" ${MAKER} install >&/tmp/logInstall$BASE || fail "install faied, see /tmp/logInstall$BASE"
++  if DESTDIR="$FAKEROOT_DIR" ${MAKER} -n install; then
++    DESTDIR="${FAKEROOT_DIR}" ${MAKER} install >&/tmp/logInstall$BASE || fail "install faied, see /tmp/logInstall$BASE"
++  else
++    DESTDIR="$FAKEROOT_DIR" ${MAKER} preinstall
++    cmake -E cmake_echo_color "--switch=$color" --cyan "Install the project..."
++    DESTDIR="${FAKEROOT_DIR}" ${MAKER} preinstall >&/tmp/logInstall$BASE || fail "install faied, see /tmp/logInstall$BASE"
++  fi
+   popd >/dev/null
+   $ADATE
+   echo "   Done "
+diff --git a/bootStrapMacOS_Monterey.arm64.sh b/bootStrapMacOS_Monterey.arm64.sh
+index 3747c5a72..09e2da26a 100644
+--- a/bootStrapMacOS_Monterey.arm64.sh
++++ b/bootStrapMacOS_Monterey.arm64.sh
+@@ -67,7 +67,13 @@ Process()
+     else
+         echo "** installing to $PREFIX **"
+     fi
+-    DESTDIR="$FAKEROOT_DIR" make install || fail install
++    if DESTDIR="$FAKEROOT_DIR" make -n install ; then
++        DESTDIR="$FAKEROOT_DIR" make install || fail install
++    else
++        DESTDIR="$FAKEROOT_DIR" make preinstall
++        cmake -E cmake_echo_color "--switch=$color" --cyan "Install the project..."
++        DESTDIR="$FAKEROOT_DIR" cmake -P cmake_install.cmake || fail install
++    fi
+     popd > /dev/null
+ }
+ printModule()
+diff --git a/bootStrapOsx_Catalina.bash b/bootStrapOsx_Catalina.bash
+index 2eda71dcf..9dc9f6224 100644
+--- a/bootStrapOsx_Catalina.bash
++++ b/bootStrapOsx_Catalina.bash
+@@ -68,7 +68,13 @@ Process()
+     else
+         echo "** installing to $PREFIX **"
+     fi
+-    DESTDIR="$FAKEROOT_DIR" make install || fail install
++    if DESTDIR="$FAKEROOT_DIR" make -n install ; then
++        DESTDIR="$FAKEROOT_DIR" make install || fail install
++    else
++        DESTDIR="$FAKEROOT_DIR" make preinstall
++        cmake -E cmake_echo_color "--switch=$color" --cyan "Install the project..."
++        DESTDIR="$FAKEROOT_DIR" cmake -P cmake_install.cmake || fail install
++    fi
+     popd > /dev/null
+ }
+ printModule()
