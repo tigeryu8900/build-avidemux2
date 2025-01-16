@@ -54,8 +54,15 @@ jobs:
       - name: Clone repositories
         working-directory: /tmp/workspace
         run: |
-          git clone https://github.com/${{ github.repository }}.git build
-          git clone --recurse-submodules https://github.com/mean00/avidemux2.git
+          git clone --depth 1 https://github.com/${{ github.repository }}.git build
+          mkdir avidemux2
+          pushd avidemux2
+          git init
+          git remote add origin https://github.com/mean00/avidemux2.git
+          git fetch --depth 1 origin ${{ inputs.ref }}
+          git checkout FETCH_HEAD
+          git submodule update --init --recursive --depth 1
+          popd
 
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
@@ -92,8 +99,15 @@ jobs:
       - name: Clone repositories
         working-directory: /tmp/workspace
         run: |
-          git clone https://github.com/${{ github.repository }}.git build
-          git clone --recurse-submodules https://github.com/mean00/avidemux2.git
+          git clone --depth 1 https://github.com/${{ github.repository }}.git build
+          mkdir avidemux2
+          pushd avidemux2
+          git init
+          git remote add origin https://github.com/mean00/avidemux2.git
+          git fetch --depth 1 origin ${{ inputs.ref }}
+          git checkout FETCH_HEAD
+          git submodule update --init --recursive --depth 1
+          popd
 
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
@@ -130,8 +144,15 @@ jobs:
       - name: Clone repositories
         working-directory: /tmp/workspace
         run: |
-          git clone https://github.com/${{ github.repository }}.git build
-          git clone --recurse-submodules https://github.com/mean00/avidemux2.git
+          git clone --depth 1 https://github.com/${{ github.repository }}.git build
+          mkdir avidemux2
+          pushd avidemux2
+          git init
+          git remote add origin https://github.com/mean00/avidemux2.git
+          git fetch --depth 1 origin ${{ inputs.ref }}
+          git checkout FETCH_HEAD
+          git submodule update --init --recursive --depth 1
+          popd
 
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
@@ -216,8 +237,15 @@ jobs:
       - name: Clone repositories
         working-directory: /tmp/workspace
         run: |
-          git clone https://github.com/${{ github.repository }}.git build
-          git clone --recurse-submodules https://github.com/mean00/avidemux2.git
+          git clone --depth 1 https://github.com/${{ github.repository }}.git build
+          mkdir avidemux2
+          pushd avidemux2
+          git init
+          git remote add origin https://github.com/mean00/avidemux2.git
+          git fetch --depth 1 origin ${{ inputs.ref }}
+          git checkout FETCH_HEAD
+          git submodule update --init --recursive --depth 1
+          popd
 
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
@@ -254,8 +282,15 @@ jobs:
       - name: Clone repositories
         working-directory: /tmp/workspace
         run: |
-          git clone https://github.com/${{ github.repository }}.git build
-          git clone --recurse-submodules https://github.com/mean00/avidemux2.git
+          git clone --depth 1 https://github.com/${{ github.repository }}.git build
+          mkdir avidemux2
+          pushd avidemux2
+          git init
+          git remote add origin https://github.com/mean00/avidemux2.git
+          git fetch --depth 1 origin ${{ inputs.ref }}
+          git checkout FETCH_HEAD
+          git submodule update --init --recursive --depth 1
+          popd
 
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
@@ -292,8 +327,15 @@ jobs:
       - name: Clone repositories
         working-directory: /tmp/workspace
         run: |
-          git clone https://github.com/${{ github.repository }}.git build
-          git clone --recurse-submodules https://github.com/mean00/avidemux2.git
+          git clone --depth 1 https://github.com/${{ github.repository }}.git build
+          mkdir avidemux2
+          pushd avidemux2
+          git init
+          git remote add origin https://github.com/mean00/avidemux2.git
+          git fetch --depth 1 origin ${{ inputs.ref }}
+          git checkout FETCH_HEAD
+          git submodule update --init --recursive --depth 1
+          popd
 
       - name: Apply patch
         working-directory: /tmp/workspace/avidemux2
