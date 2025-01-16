@@ -37,6 +37,9 @@ jobs:
         run: |
           git apply ../build/macos-arm64.patch
 
+      - name: Install dependencies
+        run: brew install cmake pkg-config nasm yasm qt xvid x264 x265 libvpx aom opus fdk-aac lame libass mp4v2 a52dec
+
       - name: Build
         working-directory: /tmp/workspace/avidemux2
         run: |
